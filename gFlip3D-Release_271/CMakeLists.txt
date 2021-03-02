@@ -4,6 +4,7 @@ find_package(CUDA QUIET REQUIRED)
 set(CMAKE_BUILD_TYPE Release)
 set(CUDA_NVCC_FLAGS
     ${CUDA_NVCC_FLAGS};
+    -D_FORCE_INLINES
     -gencode arch=compute_35,code=sm_35
     -gencode arch=compute_50,code=sm_50)
 include_directories(

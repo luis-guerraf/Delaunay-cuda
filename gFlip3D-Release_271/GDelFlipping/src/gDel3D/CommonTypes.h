@@ -67,6 +67,7 @@ DAMAGE.
 #include <thrust/sort.h>
 #include <thrust/transform_scan.h>
 #include <thrust/unique.h>
+#include <thrust/extrema.h>
 
 #ifdef REAL_TYPE_FP32
 typedef float RealType;
