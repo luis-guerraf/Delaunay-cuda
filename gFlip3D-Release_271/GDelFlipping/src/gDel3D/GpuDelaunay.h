@@ -56,17 +56,17 @@ class GpuDel
 public:
 	GpuDel();
 	GpuDel( const GDelParams& params );
-    ~GpuDel(); 
-    
+    ~GpuDel();
+
     void compute( const Point3HVec& input, GDelOutput *output );
 
 private:
     // Execution configuration
-    const GDelParams _params; 
-    GDelOutput*      _output; 
+    const GDelParams _params;
+    GDelOutput*      _output;
 
     // Input
-    Point3DVec  _pointVec; 
+    Point3DVec  _pointVec;
 
     // Output - Size proportional to tetNum
     TetDVec     _tetVec;            // Tetra list
@@ -114,7 +114,7 @@ private:
     Splaying      _splaying;          // Star splaying engine
 
     // Timing
-    CudaTimer _profTimer; 
+    CudaTimer _profTimer;
 
 private:
     // Memory pool
@@ -129,28 +129,28 @@ private:
     void splitTetra();
     void doFlippingLoop( CheckDelaunayMode checkMode );
     bool doFlipping( CheckDelaunayMode checkMode );
-    void dispatchCheckDelaunay( CheckDelaunayMode checkMode, IntDVec& voteVec ); 
+    void dispatchCheckDelaunay( CheckDelaunayMode checkMode, IntDVec& voteVec );
     void compactTetras();
     void relocateAll();
 
     // Timing
-    void startTiming(); 
-    void pauseTiming(); 
-    void stopTiming( double& accuTime ); 
+    void startTiming();
+    void pauseTiming();
+    void stopTiming( double& accuTime );
 
     // Sorting
     void expandTetraList( IntDVec *newVertVec, int tailExtra, IntDVec *tetToVert, bool sort = false );
 
-    template< typename T > 
+    template< typename T >
     void reorderVec( IntDVec &orderVec, DevVector< T > &dataVec, int oldInfBlockIdx, int newInfBlockIdx, int size, T* init );
 
-    template< typename T > 
+    template< typename T >
     void pushVecTail( DevVector< T > &dataVec, int size, int from, int gap );
 
     // Main
-    void initForFlip( const Point3HVec pointVec ); 
+    void initForFlip( const Point3HVec pointVec );
     void splitAndFlip();
     void outputToHost();
-    void cleanup(); 
+    void cleanup();
 
 }; // class GpuDel

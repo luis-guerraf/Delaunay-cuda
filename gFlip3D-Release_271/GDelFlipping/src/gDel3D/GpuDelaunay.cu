@@ -40,6 +40,7 @@ DAMAGE.
 */
 
 #include "GpuDelaunay.h"
+#include <thrust/gather.h>
 
 #include<iomanip>
 #include<iostream>

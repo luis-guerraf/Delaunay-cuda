@@ -48,7 +48,7 @@ DAMAGE.
 
 const int deviceIdx     = 0; 
 const int seed          = 123456789;
-const int pointNum      = 100000; 
+const int pointNum      = 100000;
 const Distribution dist = UniformDistribution;
 
 Point3HVec   pointVec; 
@@ -123,6 +123,6 @@ void summarize( int pointNum, const GDelOutput& output )
     std::cout << std::endl;                              
     std::cout << "# Flips        " << std::setw( 10 ) << output.stats.totalFlipNum << std::endl; 
     std::cout << "# Failed verts " << std::setw( 10 ) << output.stats.failVertNum  << std::endl; 
-    std::cout << "# Final stars  " << std::setw( 10 ) << output.stats.finalStarNum << std::endl; 
+    std::cout << "# Final stars  " << std::setw( 10 ) << output.stats.finalStarNum << std::endl;
 }
 
